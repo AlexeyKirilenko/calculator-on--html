@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+        body {
+            background-color: #0071c5;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 24px;
+            text-align: right;
+            border: none;
+            border-radius: 5px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="button"] {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            background-color: #ffc107;
+            border: none;
+            border-radius: 5px;
+            font-size: 24px;
+            color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        input[type="button"]:hover {
+            background-color: #ffa000;
+        }
+
+        input[type="button"]:active {
+            background-color: #ff8f00;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input type="text" id="result" name="result" readonly>
+        <br>
+        <input type="button" value="1" onclick="updateResult('1')">
+        <input type="button" value="2" onclick="updateResult('2')">
+        <input type="button" value="3" onclick="updateResult('3')">
+        <input type="button" value="+" onclick="updateResult('+')">
+        <br>
+        <input type="button" value="4" onclick="updateResult('4')">
+        <input type="button" value="5" onclick="updateResult('5')">
+        <input type="button" value="6" onclick="updateResult('6')">
+        <input type="button" value="-" onclick="updateResult('-')">
+        <br>
+        <input type="button" value="7" onclick="updateResult('7')">
+        <input type="button" value="8" onclick="updateResult('8')">
+        <input type="button" value="9" onclick="updateResult('9')">
+        <input type="button" value="*" onclick="updateResult('*')">
+        <br>
+        <input type="button" value="0" onclick="updateResult('0')">
+        <input type="button" value="." onclick="updateResult('.')">
+        <input type="button" value="/" onclick="updateResult('/')">
+        <input type="button" value="C" onclick="clearResult()">
+        <br>
+        <input type="button" value="=" onclick="calculateResult()">
+    </form>
+
+    <script>
+        function updateResult(value) {
+            document.getElementById('result').value += value;
+        }
+
+        function clearResult() {
+            document.getElementById('result').value = '';
+        }
+
+        function calculateResult() {
+            var result = eval(document.getElementById('result').value);
+            document.getElementById('result').value = result;
+        }
+    </script>
+</body>
+</html>
